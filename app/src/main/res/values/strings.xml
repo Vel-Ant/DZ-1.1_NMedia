@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">DZ-1.1_NMedia</string>
+    <string name="app_name">NMedia</string>
+    <string name="nmedia">NMedia!</string>
+    <string name="label">NMedia</string>
 </resources>

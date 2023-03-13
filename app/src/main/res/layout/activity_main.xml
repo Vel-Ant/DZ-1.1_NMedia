@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="cursive"
         android:lineSpacingExtra="34sp"
-        android:text="NMedia!"
+        android:text="@string/nmedia"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#FF9800"
         android:textSize="60sp"
