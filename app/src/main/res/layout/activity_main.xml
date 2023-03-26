@@ -14,7 +14,7 @@
         android:contentDescription="@string/avatar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@sample/posts.json/data/authorAvatar" />
+        app:srcCompat="@drawable/post_avatar_drawable" />
 
     <TextView
         android:id="@+id/author"
@@ -64,7 +64,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/avatar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/avatar"
-        app:srcCompat="@drawable/ic_baseline_more_vert_24" />
+        app:srcCompat="@drawable/menu_vert_24" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier_avatar"
@@ -81,42 +81,44 @@
         app:constraint_referenced_ids="content" />
 
     <ImageView
-        android:id="@+id/favorites"
+        android:id="@+id/likes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="@string/favorites"
+        android:contentDescription="@string/likes"
         android:layout_marginTop="@dimen/common_spacing"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/barrier_content"
-        app:srcCompat="@drawable/baseline_favorite_24" />
+        app:srcCompat="@drawable/like_24" />
 
     <TextView
-        android:id="@+id/favorites_counter"
+        android:id="@+id/likes_count"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/common_spacing"
         android:layout_marginStart="@dimen/distance_to_icon"
-        app:layout_constraintStart_toEndOf="@+id/favorites"
+        android:layout_marginTop="@dimen/common_spacing"
+        app:layout_constraintBottom_toBottomOf="@+id/likes"
+        app:layout_constraintStart_toEndOf="@+id/likes"
         app:layout_constraintTop_toBottomOf="@+id/barrier_content"
-        tools:text="@sample/posts.json/data/favorites" />
+        tools:text="@sample/posts.json/data/likes" />
 
     <ImageView
         android:id="@+id/share"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/share"
-        app:srcCompat="@drawable/baseline_share_24"
+        app:srcCompat="@drawable/share_24"
         android:layout_marginTop="@dimen/common_spacing"
         android:layout_marginStart="24dp"
-        app:layout_constraintStart_toEndOf="@id/favorites_counter"
+        app:layout_constraintStart_toEndOf="@id/likes_count"
         app:layout_constraintTop_toBottomOf="@+id/barrier_content" />
 
     <TextView
-        android:id="@+id/share_counter"
+        android:id="@+id/share_count"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/common_spacing"
         android:layout_marginStart="@dimen/distance_to_icon"
+        android:layout_marginTop="@dimen/common_spacing"
+        app:layout_constraintBottom_toBottomOf="@+id/share"
         app:layout_constraintStart_toEndOf="@+id/share"
         app:layout_constraintTop_toBottomOf="@+id/barrier_content"
         tools:text="@sample/posts.json/data/share" />
@@ -128,15 +130,16 @@
         android:contentDescription="@string/viewings"
         android:layout_marginTop="@dimen/common_spacing"
         android:layout_marginEnd="@dimen/distance_to_icon"
-        app:srcCompat="@drawable/baseline_visibility_24"
-        app:layout_constraintEnd_toStartOf="@id/viewings_counter"
+        app:srcCompat="@drawable/visibility_24"
+        app:layout_constraintEnd_toStartOf="@id/viewings_count"
         app:layout_constraintTop_toBottomOf="@+id/barrier_content" />
 
     <TextView
-        android:id="@+id/viewings_counter"
+        android:id="@+id/viewings_count"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/common_spacing"
+        app:layout_constraintBottom_toBottomOf="@+id/viewings"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/barrier_content"
         tools:text="@sample/posts.json/data/viewings" />
