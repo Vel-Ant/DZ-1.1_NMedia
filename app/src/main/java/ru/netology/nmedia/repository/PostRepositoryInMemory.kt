@@ -19,23 +19,23 @@ class PostRepositoryInMemory: PostRepository {
 
     override fun like() {
         post = post.copy(
-            likes_count = if (post.iLiked) post.likes_count - 1 else post.likes_count + 1,
-            iLiked = !post.iLiked
+            likesCount = if (post.liked) post.likesCount - 1 else post.likesCount + 1,
+            liked = !post.liked
         )
         data.value = post
     }
 
     override fun share() {
         post = post.copy(
-            share_count = post.share_count + 1,
-            iShared = !post.iShared
+            shareCount = post.shareCount + 1,
+            shared = !post.shared
         )
         data.value = post
     }
 
     override fun viewing() {
         post = post.copy(
-            viewings_count = post.viewings_count + 1
+            viewingsCount = post.viewingsCount + 1
         )
         data.value = post
     }
