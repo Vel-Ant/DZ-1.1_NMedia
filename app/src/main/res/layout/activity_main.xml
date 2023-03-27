@@ -53,7 +53,7 @@
         android:autoLink="web"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/barrier_avatar"
+        app:layout_constraintTop_toBottomOf="@+id/barrierAvatar"
         tools:text="@sample/posts.json/data/content" />
 
     <ImageView
@@ -67,14 +67,14 @@
         app:srcCompat="@drawable/menu_vert_24" />
 
     <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/barrier_avatar"
+        android:id="@+id/barrierAvatar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
         app:constraint_referenced_ids="avatar, published" />
 
     <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/barrier_content"
+        android:id="@+id/barrierContent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
@@ -87,18 +87,18 @@
         android:contentDescription="@string/likes"
         android:layout_marginTop="@dimen/common_spacing"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/barrier_content"
+        app:layout_constraintTop_toBottomOf="@+id/barrierContent"
         app:srcCompat="@drawable/like_24" />
 
     <TextView
-        android:id="@+id/likes_count"
+        android:id="@+id/likesCount"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/distance_to_icon"
         android:layout_marginTop="@dimen/common_spacing"
         app:layout_constraintBottom_toBottomOf="@+id/likes"
         app:layout_constraintStart_toEndOf="@+id/likes"
-        app:layout_constraintTop_toBottomOf="@+id/barrier_content"
+        app:layout_constraintTop_toBottomOf="@+id/barrierContent"
         tools:text="@sample/posts.json/data/likes" />
 
     <ImageView
@@ -109,18 +109,18 @@
         app:srcCompat="@drawable/share_24"
         android:layout_marginTop="@dimen/common_spacing"
         android:layout_marginStart="24dp"
-        app:layout_constraintStart_toEndOf="@id/likes_count"
-        app:layout_constraintTop_toBottomOf="@+id/barrier_content" />
+        app:layout_constraintStart_toEndOf="@id/likesCount"
+        app:layout_constraintTop_toBottomOf="@+id/barrierContent" />
 
     <TextView
-        android:id="@+id/share_count"
+        android:id="@+id/shareCount"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/distance_to_icon"
         android:layout_marginTop="@dimen/common_spacing"
         app:layout_constraintBottom_toBottomOf="@+id/share"
         app:layout_constraintStart_toEndOf="@+id/share"
-        app:layout_constraintTop_toBottomOf="@+id/barrier_content"
+        app:layout_constraintTop_toBottomOf="@+id/barrierContent"
         tools:text="@sample/posts.json/data/share" />
 
     <ImageView
@@ -131,17 +131,17 @@
         android:layout_marginTop="@dimen/common_spacing"
         android:layout_marginEnd="@dimen/distance_to_icon"
         app:srcCompat="@drawable/visibility_24"
-        app:layout_constraintEnd_toStartOf="@id/viewings_count"
-        app:layout_constraintTop_toBottomOf="@+id/barrier_content" />
+        app:layout_constraintEnd_toStartOf="@id/viewingsCount"
+        app:layout_constraintTop_toBottomOf="@+id/barrierContent" />
 
     <TextView
-        android:id="@+id/viewings_count"
+        android:id="@+id/viewingsCount"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/common_spacing"
         app:layout_constraintBottom_toBottomOf="@+id/viewings"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/barrier_content"
+        app:layout_constraintTop_toBottomOf="@+id/barrierContent"
         tools:text="@sample/posts.json/data/viewings" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
