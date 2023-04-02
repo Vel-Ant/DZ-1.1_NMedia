@@ -2,58 +2,81 @@ package ru.netology.nmedia
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.viewModels
+import androidx.lifecycle.ViewModel
 import ru.netology.nmedia.databinding.ActivityMainBinding
+import ru.netology.nmedia.databinding.CardPostBinding
 import ru.netology.nmedia.service.CounterService
 import ru.netology.nmedia.viewmodel.PostViewModel
 import java.security.Provider.Service
 
 class MainActivity : AppCompatActivity() {
+
+    val viewModel: PostViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        val activityMainBinding = ActivityMainBinding.inflate(layoutInflater)
 
-        val viewModel: PostViewModel by viewModels()
-        viewModel.data.observe(this) { post ->
-            with(binding) {
-                author.text = post.author
-                content.text = post.content
-                published.text = post.published
-                likesCount.text = CounterService.modifyQuantityDisplay(post.likesCount)
-                shareCount.text = CounterService.modifyQuantityDisplay(post.shareCount)
-                viewingsCount.text = CounterService.modifyQuantityDisplay(post.viewingsCount)
+        setContentView(activityMainBinding.root)
 
-                if (post.liked) {
-                    likes.setImageResource(R.drawable.iliked_24)
-                } else {
-                    likes.setImageResource(R.drawable.like_24)
+        startPostViewModel(activityMainBinding)
+
+    }
+
+    fun startPostViewModel(activityMainBinding: ActivityMainBinding) {
+        viewModel.data.observe(this) { posts ->
+            activityMainBinding.container.removeAllViews()
+            val views = posts.map { post ->
+                val cardPostBinding =
+                    CardPostBinding.inflate(layoutInflater, activityMainBinding.root, false)
+                with(cardPostBinding) {
+                    author.text = post.author
+                    content.text = post.content
+                    published.text = post.published
+                    likesCount.text = CounterService.modifyQuantityDisplay(post.likesCount)
+                    shareCount.text = CounterService.modifyQuantityDisplay(post.shareCount)
+                    viewingsCount.text = CounterService.modifyQuantityDisplay(post.viewingsCount)
+
+                    if (post.liked) {
+                        likes.setImageResource(R.drawable.iliked_24)
+                    } else {
+                        likes.setImageResource(R.drawable.like_24)
+                    }
+
+                    if (post.shared) {
+                        share.setImageResource(R.drawable.ishared_24)
+                    }
+
+                    startSetOnClickListener(cardPostBinding)
                 }
 
-                if (post.shared) {
-                    share.setImageResource(R.drawable.ishared_24)
-                }
+                cardPostBinding
+            }
+
+            views.forEach {
+                activityMainBinding.container.addView(it.root)
             }
         }
+    }
 
-        binding.root.setOnClickListener {
-            Log.d("stuff", "stuff")
-        }
+    fun startSetOnClickListener(cardPostBinding: CardPostBinding) {
+        viewModel.data.observe(this) { posts ->
+            posts.map { post ->
 
-        binding.avatar.setOnClickListener {
-            Log.d("stuff", "avatar")
-        }
+                cardPostBinding.likes.setOnClickListener {
+                    viewModel.likeById(post.postId)
+                }
 
-        binding.likes.setOnClickListener {
-            Log.d("stuff", "like")
-            viewModel.like()
-        }
+                cardPostBinding.share.setOnClickListener {
+                    viewModel.shareById(post.postId)
+                }
 
-        binding.share.setOnClickListener {
-            Log.d("stuff", "share")
-            viewModel.share()
+//                cardPostBinding.menu.setOnClickListener {
+//                    viewModel.menu(post.postId)
+//                }
+            }
         }
     }
 }

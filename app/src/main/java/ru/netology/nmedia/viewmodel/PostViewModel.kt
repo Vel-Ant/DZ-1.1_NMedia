@@ -6,10 +6,12 @@ import ru.netology.nmedia.dto.Post
 import ru.netology.nmedia.repository.PostRepository
 import ru.netology.nmedia.repository.PostRepositoryInMemory
 
-class PostViewModel: ViewModel() {
+class PostViewModel : ViewModel() {
     private val repository: PostRepository = PostRepositoryInMemory()
 
-    val data: LiveData<Post> = repository.getData()
-    fun like() = repository.like()
-    fun share() = repository.share()
+    val data: LiveData<List<Post>> = repository.getData()
+    fun likeById(postId: Long) = repository.likeById(postId)
+    fun shareById(postId: Long) = repository.shareById(postId)
+    fun viewingById(postId: Long) = repository.viewingById(postId)
+
 }
