@@ -1,7 +1,5 @@
 package ru.netology.nmedia.dto
 
-import java.math.RoundingMode
-
 //  расчет текущего времени
 val timestamp = System.currentTimeMillis()
 val sdf = java.text.SimpleDateFormat("dd-MM-yyyy' в 'HH:mm:ss' '")
