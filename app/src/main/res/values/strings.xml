@@ -7,4 +7,11 @@
     <string name="share">Share</string>
     <string name="likes">Likes</string>
     <string name="viewings">Viewings</string>
+    <string name="edit">Edit</string>
+    <string name="remove">Remove</string>
+    <string name="content_hint">Content</string>
+    <string name="save">Save</string>
+    <string name="empty_post_error">Content must not be empty</string>
+    <string name="clear_edit">Clear_Edit</string>
+    <string name="cancel_editing">Cancel Editing</string>
 </resources>

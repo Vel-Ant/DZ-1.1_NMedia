@@ -8,4 +8,11 @@
     <string name="share">Поделиться</string>
     <string name="likes">Лайки</string>
     <string name="viewings">Просмотры</string>
+    <string name="edit">Редактирование</string>
+    <string name="remove">Удаление</string>
+    <string name="content_hint">Текст</string>
+    <string name="save">Сохранение</string>
+    <string name="empty_post_error">Текст не может быть пустым</string>
+    <string name="clear_edit">Отмена редактирования</string>
+    <string name="cancel_editing">Cancel Editing</string>
 </resources>
