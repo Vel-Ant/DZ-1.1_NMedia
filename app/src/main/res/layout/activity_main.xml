@@ -51,19 +51,19 @@
         android:padding="@dimen/common_spacing"
         android:singleLine="true"
         android:textColorHint="#FF0000"
-        app:layout_constraintBottom_toBottomOf="@id/clearEdit"
-        app:layout_constraintEnd_toStartOf="@+id/clearEdit"
+        app:layout_constraintBottom_toBottomOf="@id/cancelEditor"
+        app:layout_constraintEnd_toStartOf="@+id/cancelEditor"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/clearEdit"
+        app:layout_constraintTop_toTopOf="@+id/cancelEditor"
         app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
-        android:id="@+id/clearEdit"
+        android:id="@+id/cancelEditor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#FFFF"
-        android:contentDescription="@string/clear_edit"
+        android:contentDescription="@string/cancelEditor"
         android:padding="@dimen/common_spacing"
         app:layout_constraintBottom_toTopOf="@id/barrierContent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -81,7 +81,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        app:constraint_referenced_ids="cancelEditing,clearEdit" />
+        app:constraint_referenced_ids="cancelEditing,cancelEditor" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

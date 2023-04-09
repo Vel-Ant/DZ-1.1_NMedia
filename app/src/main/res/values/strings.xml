@@ -12,6 +12,6 @@
     <string name="content_hint">Content</string>
     <string name="save">Save</string>
     <string name="empty_post_error">Content must not be empty</string>
-    <string name="clear_edit">Clear_Edit</string>
+    <string name="cancelEditor">Сancel Editor</string>
     <string name="cancel_editing">Cancel Editing</string>
 </resources>

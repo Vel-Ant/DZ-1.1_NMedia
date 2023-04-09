@@ -13,6 +13,6 @@
     <string name="content_hint">Текст</string>
     <string name="save">Сохранение</string>
     <string name="empty_post_error">Текст не может быть пустым</string>
-    <string name="clear_edit">Отмена редактирования</string>
-    <string name="cancel_editing">Cancel Editing</string>
+    <string name="cancelEditor">Убрать редактор</string>
+    <string name="cancel_editing">Отменить редактирование</string>
 </resources>

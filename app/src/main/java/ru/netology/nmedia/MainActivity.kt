@@ -52,13 +52,15 @@ class MainActivity : AppCompatActivity() {
 
     fun editViewModel(activityMainBinding: ActivityMainBinding) {
         viewModel.edited.observe(this) {
-            if (it.postId == 0L) {
-                return@observe
-            }
+            with(activityMainBinding.content) {
+                if (it.postId == 0L) {
+                    return@observe
+                }
 
-            activityMainBinding.cancelGroup.visibility = View.VISIBLE
-            activityMainBinding.content.requestFocus()
-            activityMainBinding.content.setText(it.content)
+                activityMainBinding.cancelGroup.visibility = View.VISIBLE
+                requestFocus()
+                setText(it.content)
+            }
         }
     }
 
@@ -87,10 +89,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun cancelEditOnClickListener(activityMainBinding: ActivityMainBinding) {
-        activityMainBinding.clearEdit.setOnClickListener {
+        activityMainBinding.cancelEditor.setOnClickListener {
+            viewModel.cancelEdit()
             with(activityMainBinding.content) {
-                val content = text.toString()
-                viewModel.cancelEdit(content)
+                setText("")
+                clearFocus()
+                AndroidUtils.hideKeyboard(this)
+                activityMainBinding.cancelGroup.visibility = View.GONE
             }
         }
     }
