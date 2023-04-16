@@ -2,4 +2,8 @@
 <resources>
     <dimen name="common_spacing">16dp</dimen>
     <dimen name="distance_to_icon">8dp</dimen>
+    <dimen name="common_spacing_checkbox">4dp</dimen>
+    <dimen name="icon_button_min_wight_size">84dp</dimen>
+    <dimen name="icon_button_min_height_size">24dp</dimen>
+    <dimen name="text_size_button">16dp</dimen>
 </resources>

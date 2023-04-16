@@ -17,19 +17,13 @@ class PostViewHolder(
             author.text = post.author
             content.text = post.content
             published.text = post.published
-            likesCount.text = CounterService.modifyQuantityDisplay(post.likesCount)
-            shareCount.text = CounterService.modifyQuantityDisplay(post.shareCount)
+            likes.text = CounterService.modifyQuantityDisplay(post.likesCount)
+            share.text = CounterService.modifyQuantityDisplay(post.shareCount)
             viewingsCount.text = CounterService.modifyQuantityDisplay(post.viewingsCount)
 
-            if (post.liked) {
-                likes.setImageResource(R.drawable.iliked_24)
-            } else {
-                likes.setImageResource(R.drawable.like_24)
-            }
+            likes.isChecked = post.liked
 
-            if (post.shared) {
-                share.setImageResource(R.drawable.ishared_24)
-            }
+            share.isChecked = post.shared
 
             likes.setOnClickListener {
                 listener.onLike(post)

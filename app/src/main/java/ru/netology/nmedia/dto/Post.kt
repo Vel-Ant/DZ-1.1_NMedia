@@ -13,7 +13,7 @@ data class Post(
     val published: String = sdfFormat,
     val liked: Boolean = false,
     val shared: Boolean = false,
-    val likesCount: Int,
-    val shareCount: Int,
-    val viewingsCount: Int
+    val likesCount: Int = 0,
+    val shareCount: Int = 0,
+    val viewingsCount: Int = 0
 )

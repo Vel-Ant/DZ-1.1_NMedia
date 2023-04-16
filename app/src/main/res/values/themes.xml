@@ -12,5 +12,35 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="popupMenuStyle">@style/widgetPopupMenu</item>
+    </style>
+
+    <style name="likeStyle" parent="Widget.Material3.Button.TextButton">
+        <item name="iconTint">@color/like_button_tint</item>
+        <item name="android:minWidth">@dimen/icon_button_min_wight_size</item>
+        <item name="android:minHeight">@dimen/icon_button_min_height_size</item>
+        <item name="android:textSize">@dimen/text_size_button</item>
+        <item name="android:textColor">?attr/colorControlNormal</item>
+
+    </style>
+
+    <style name="shareStyle" parent="Widget.Material3.Button.TextButton">
+        <item name="iconTint">@color/share_button_tint</item>
+        <item name="android:minWidth">@dimen/icon_button_min_wight_size</item>
+        <item name="android:minHeight">@dimen/icon_button_min_height_size</item>
+        <item name="android:textSize">@dimen/text_size_button</item>
+        <item name="android:textColor">?attr/colorControlNormal</item>
+    </style>
+
+    <style name="menuStyle" parent="Widget.Material3.Button.IconButton">
+        <item name="iconTint">@color/menu_button_tint</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:textColor">?attr/colorControlNormal</item>
+    </style>
+
+    <style name="widgetPopupMenu" parent="Widget.MaterialComponents.PopupMenu">
+        <item name="android:popupBackground">@drawable/custom_popup_background</item>
+        <item name="android:textColor">?attr/colorControlNormal</item>
     </style>
 </resources>
