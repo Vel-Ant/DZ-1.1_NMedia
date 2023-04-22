@@ -90,6 +90,16 @@ class PostRepositoryInMemory : PostRepository {
             shareCount = 5_999_999,
             viewingsCount = 7_088_000
         ),
+        Post(
+            postId = ++nextId,
+            author = "Нетология. Университет интернет-профессий будущего",
+            content = "https://www.youtube.com/watch?v=WhWc3b3KhnY",
+            published = "23 сентября в 10:12",
+            likesCount = 0,
+            shareCount = 0,
+            viewingsCount = 0,
+            urlVideo = "https://www.youtube.com/watch?v=WhWc3b3KhnY"
+        ),
     ).reversed()
 
     private val data = MutableLiveData(posts)

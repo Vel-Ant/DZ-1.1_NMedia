@@ -1,6 +1,11 @@
 package ru.netology.nmedia.adapter
 
+import android.graphics.Bitmap
+import android.net.Uri
+import android.provider.MediaStore
+import android.view.View
 import android.widget.PopupMenu
+import androidx.appcompat.view.ContextThemeWrapper
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import ru.netology.nmedia.R
 import ru.netology.nmedia.databinding.CardPostBinding
@@ -25,6 +30,16 @@ class PostViewHolder(
 
             share.isChecked = post.shared
 
+            if (post.urlVideo != null) {
+                videoScreen.visibility = View.VISIBLE
+
+                videoView.apply {
+                    setVideoURI(Uri.parse(post.urlVideo))
+                    requestFocus()
+                    start()
+                }
+            }
+
             likes.setOnClickListener {
                 listener.onLike(post)
             }
@@ -33,8 +48,12 @@ class PostViewHolder(
                 listener.onShare(post)
             }
 
+            videoScreen.setOnClickListener {
+                listener.onPlayVideo(post)
+            }
+
             menu.setOnClickListener {
-                PopupMenu(it.context, it).apply {
+                PopupMenu(ContextThemeWrapper(it.context, R.style.widgetPopupMenu), it).apply {
                     inflate(R.menu.options_post)
                     setOnMenuItemClickListener { item ->
                         when (item.itemId) {

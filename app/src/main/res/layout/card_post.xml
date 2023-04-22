@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="@dimen/common_spacing"
-    tools:context=".MainActivity">
+    tools:context=".activity.MainActivity">
 
     <ImageView
         android:id="@+id/avatar"
@@ -53,7 +53,7 @@
         android:autoLink="web"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/barrierAvatar"
+        app:layout_constraintTop_toBottomOf="@+id/videoScreenBarrier"
         tools:text="@sample/posts.json/data/content" />
 
     <com.google.android.material.button.MaterialButton
@@ -78,6 +78,13 @@
         app:constraint_referenced_ids="avatar, published" />
 
     <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/videoScreenBarrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="barrierAvatar" />
+
+    <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrierContent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -93,8 +100,8 @@
         android:checkable="true"
         android:contentDescription="@string/likes"
         app:backgroundTint="@android:color/transparent"
-        app:iconPadding="0dp"
         app:icon="@drawable/check_like"
+        app:iconPadding="0dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/barrierContent"
         tools:checked="true"
@@ -107,11 +114,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/distance_to_icon"
         android:layout_marginTop="@dimen/common_spacing_checkbox"
-        android:checkable="true"
         android:contentDescription="@string/share"
         app:backgroundTint="@android:color/transparent"
-        app:iconPadding="0dp"
         app:icon="@drawable/check_share"
+        app:iconPadding="0dp"
         app:layout_constraintBottom_toBottomOf="@+id/likes"
         app:layout_constraintStart_toEndOf="@+id/likes"
         app:layout_constraintTop_toBottomOf="@+id/barrierContent"
@@ -139,5 +145,38 @@
         app:layout_constraintStart_toEndOf="@+id/viewings"
         app:layout_constraintTop_toTopOf="@+id/viewings"
         tools:text="@sample/posts.json/data/viewings" />
+
+    <FrameLayout
+        android:id="@+id/videoScreen"
+        android:layout_width="0dp"
+        android:layout_height="250dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/videoScreenBarrier"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/barrierAvatar">
+
+        <VideoView
+            android:id="@+id/videoView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintDimensionRatio="4:3"
+            android:background="@android:color/transparent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/playButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:checkable="true"
+            app:backgroundTint="@android:color/transparent"
+            android:contentDescription="@string/play_button"
+            app:icon="@drawable/play_circle_outline_24"
+            app:iconPadding="0dp"
+            app:iconSize="55dp" />
+
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
