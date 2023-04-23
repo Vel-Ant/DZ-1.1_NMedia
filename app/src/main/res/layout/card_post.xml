@@ -158,6 +158,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/barrierAvatar">
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/playButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:backgroundTint="@android:color/transparent"
+            android:contentDescription="@string/play_button"
+            app:icon="@drawable/play_circle_outline_24"
+            app:iconPadding="0dp"
+            app:iconSize="55dp" />
+
         <VideoView
             android:id="@+id/videoView"
             android:layout_width="wrap_content"
@@ -165,17 +176,14 @@
             app:layout_constraintDimensionRatio="4:3"
             android:background="@android:color/transparent" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/playButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:checkable="true"
-            app:backgroundTint="@android:color/transparent"
-            android:contentDescription="@string/play_button"
-            app:icon="@drawable/play_circle_outline_24"
-            app:iconPadding="0dp"
-            app:iconSize="55dp" />
+<!--        <ImageView-->
+<!--            android:id="@+id/videoImage"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="250dp"-->
+<!--            app:layout_constraintBottom_toTopOf="@+id/videoScreenBarrier"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/barrierAvatar" />-->
 
     </FrameLayout>
 

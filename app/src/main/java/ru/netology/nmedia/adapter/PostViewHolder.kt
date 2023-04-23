@@ -1,8 +1,6 @@
 package ru.netology.nmedia.adapter
 
-import android.graphics.Bitmap
-import android.net.Uri
-import android.provider.MediaStore
+import android.media.MediaMetadataRetriever
 import android.view.View
 import android.widget.PopupMenu
 import androidx.appcompat.view.ContextThemeWrapper
@@ -30,13 +28,25 @@ class PostViewHolder(
 
             share.isChecked = post.shared
 
-            if (post.urlVideo != null) {
+            if (!post.urlVideo.isNullOrBlank()) {
                 videoScreen.visibility = View.VISIBLE
 
-                videoView.apply {
-                    setVideoURI(Uri.parse(post.urlVideo))
-                    requestFocus()
-                    start()
+//TODO: разобраться с исключением
+//                val retriever = MediaMetadataRetriever()
+//                retriever.setDataSource(post.urlVideo, HashMap())
+//                val time = 2000L // время в миллисекундах
+//                val bitmap = retriever.getFrameAtTime(time)
+//                if (bitmap != null) {
+//                    videoImage.visibility = View.VISIBLE
+//                    videoImage.setImageBitmap(bitmap)
+//                } else videoImage.visibility = View.GONE
+
+                playButton.setOnClickListener {
+                    listener.onPlayVideo(post)
+                }
+
+                videoView.setOnClickListener {
+                    listener.onPlayVideo(post)
                 }
             }
 
@@ -46,10 +56,6 @@ class PostViewHolder(
 
             share.setOnClickListener {
                 listener.onShare(post)
-            }
-
-            videoScreen.setOnClickListener {
-                listener.onPlayVideo(post)
             }
 
             menu.setOnClickListener {

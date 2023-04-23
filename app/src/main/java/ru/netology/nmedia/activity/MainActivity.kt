@@ -4,9 +4,6 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.MediaController
-import android.widget.VideoView
 import androidx.activity.viewModels
 import ru.netology.nmedia.R
 import ru.netology.nmedia.adapter.PostAdapter

@@ -31,7 +31,7 @@
         <item name="android:textColor">?attr/colorControlNormal</item>
     </style>
 
-    <style name="menuStyle" parent="Widget.Material3.Button.IconButton">
+    <style name="menuStyle" parent="Widget.Material3.Button">
         <item name="iconTint">@color/menu_button_tint</item>
         <item name="android:minWidth">0dp</item>
         <item name="android:minHeight">0dp</item>
