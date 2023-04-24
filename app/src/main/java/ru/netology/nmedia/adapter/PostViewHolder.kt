@@ -31,16 +31,6 @@ class PostViewHolder(
             if (!post.urlVideo.isNullOrBlank()) {
                 videoScreen.visibility = View.VISIBLE
 
-//TODO: разобраться с исключением
-//                val retriever = MediaMetadataRetriever()
-//                retriever.setDataSource(post.urlVideo, HashMap())
-//                val time = 2000L // время в миллисекундах
-//                val bitmap = retriever.getFrameAtTime(time)
-//                if (bitmap != null) {
-//                    videoImage.visibility = View.VISIBLE
-//                    videoImage.setImageBitmap(bitmap)
-//                } else videoImage.visibility = View.GONE
-
                 playButton.setOnClickListener {
                     listener.onPlayVideo(post)
                 }
@@ -48,6 +38,8 @@ class PostViewHolder(
                 videoView.setOnClickListener {
                     listener.onPlayVideo(post)
                 }
+            } else {
+                videoScreen.visibility = View.GONE
             }
 
             likes.setOnClickListener {

@@ -93,7 +93,7 @@ class PostRepositoryInMemory : PostRepository {
         Post(
             postId = ++nextId,
             author = "Нетология. Университет интернет-профессий будущего",
-            content = "https://www.youtube.com/watch?v=WhWc3b3KhnY",
+            content = "Ссылка на видео в Youtube",
             published = "23 сентября в 10:12",
             likesCount = 0,
             shareCount = 0,
@@ -101,7 +101,6 @@ class PostRepositoryInMemory : PostRepository {
             urlVideo = "https://www.youtube.com/watch?v=WhWc3b3KhnY"
         ),
     ).reversed()
-
     private val data = MutableLiveData(posts)
 
     override fun getAll(): LiveData<List<Post>> = data
