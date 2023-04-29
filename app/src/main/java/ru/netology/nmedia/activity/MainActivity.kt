@@ -62,6 +62,11 @@ class MainActivity : AppCompatActivity() {
         addOnClickListener(binding)
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.cancelEdit()
+    }
+
     fun startPostViewModel(binding: ActivityMainBinding) {
         viewModel.data.observe(this) { posts ->
             adapter.submitList(posts)
