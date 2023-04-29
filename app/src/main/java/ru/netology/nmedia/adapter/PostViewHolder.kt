@@ -9,6 +9,7 @@ import ru.netology.nmedia.R
 import ru.netology.nmedia.databinding.CardPostBinding
 import ru.netology.nmedia.dto.Post
 import ru.netology.nmedia.service.CounterService
+import java.net.URL
 
 class PostViewHolder(
     private val binding: CardPostBinding,
@@ -30,6 +31,16 @@ class PostViewHolder(
 
             if (!post.urlVideo.isNullOrBlank()) {
                 videoScreen.visibility = View.VISIBLE
+
+//TODO: разобраться с исключением
+//                val retriever = MediaMetadataRetriever()
+//                retriever.setDataSource(post.urlVideo, HashMap())
+//                val time = 2000L // время в миллисекундах
+//                val bitmap = retriever.getFrameAtTime(time)
+//                if (bitmap != null) {
+//                    videoImage.visibility = View.VISIBLE
+//                    videoImage.setImageBitmap(bitmap)
+//                } else videoImage.visibility = View.GONE
 
                 playButton.setOnClickListener {
                     listener.onPlayVideo(post)

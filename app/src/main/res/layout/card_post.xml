@@ -160,23 +160,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/barrierContent">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/playButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            app:backgroundTint="@android:color/transparent"
-            android:contentDescription="@string/play_button"
-            app:icon="@drawable/play_circle_outline_24"
-            app:iconPadding="0dp"
-            app:iconSize="55dp" />
-
         <VideoView
             android:id="@+id/videoView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintDimensionRatio="4:3"
-            android:background="@android:color/transparent" />
+            android:background="#000000" />
 
         <ImageView
             android:id="@+id/videoImage"
@@ -187,6 +176,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/barrierContent"
             app:srcCompat="@drawable/spring" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/playButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:backgroundTint="@android:color/transparent"
+            android:contentDescription="@string/play_button"
+            app:icon="@drawable/play_circle_outline_24"
+            app:iconPadding="0dp"
+            app:iconSize="55dp" />
 
     </FrameLayout>
 

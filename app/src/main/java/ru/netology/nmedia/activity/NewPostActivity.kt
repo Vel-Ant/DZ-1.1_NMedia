@@ -3,13 +3,17 @@ package ru.netology.nmedia.activity
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.window.OnBackInvokedDispatcher
 import androidx.activity.OnBackPressedCallback
 import ru.netology.nmedia.viewmodel.PostViewModel
 import androidx.activity.result.contract.ActivityResultContract
 import androidx.activity.viewModels
+import androidx.annotation.RequiresApi
 import ru.netology.nmedia.databinding.ActivityNewPostBinding
+import ru.netology.nmedia.dto.Post
 
 class NewPostActivity : AppCompatActivity() {
 
@@ -22,11 +26,7 @@ class NewPostActivity : AppCompatActivity() {
 
         binding.edit.setText(intent?.getStringExtra(Intent.EXTRA_TEXT))
 
-        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                callBackPressed(binding)
-            }
-        })
+        callBackPressed()
 
         okSetOnClickListener(binding)
     }
@@ -45,17 +45,23 @@ class NewPostActivity : AppCompatActivity() {
         }
     }
 
-    internal fun callBackPressed(binding: ActivityNewPostBinding) {
-        viewModel.edited.observe(this) {
-            with(binding.edit) {
-                if (it.postId == 0L) {
-                    return@observe
-                } else {
-                    viewModel.cancelEdit()
-                }
+//    fun cancelEdit() {
+//        viewModel.edited.observe(this) { post ->
+//            if (post.postId == 0L) {
+//                return@observe
+//            } else {
+//                viewModel.cancelEdit()
+//            }
+//        }
+//    }
+
+    fun callBackPressed() {
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                viewModel.cancelEdit()
+                finish()
             }
-        }
-        finish()
+        })
     }
 
     object Contact : ActivityResultContract<String?, String?>() {

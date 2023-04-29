@@ -1,7 +1,8 @@
 package ru.netology.nmedia.viewmodel
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import ru.netology.nmedia.dto.Post
 import ru.netology.nmedia.dto.sdfFormat
 import ru.netology.nmedia.repository.PostRepository
@@ -19,8 +20,8 @@ private val empty = Post(
     viewingsCount = 0,
 )
 
-class PostViewModel : ViewModel() {
-    private val repository: PostRepository = PostRepositoryInMemory()
+class PostViewModel(application: Application) : AndroidViewModel(application) {
+    private val repository: PostRepository = PostRepositoryInMemory(application)
 
     val data = repository.getAll()
 
