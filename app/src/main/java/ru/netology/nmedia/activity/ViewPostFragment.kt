@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import ru.netology.nmedia.R
-import ru.netology.nmedia.activity.FeedFragment.Companion.argPostId
+import ru.netology.nmedia.activity.FeedFragment.Companion.longArg
 import ru.netology.nmedia.databinding.FragmentViewPostBinding
 import ru.netology.nmedia.service.CounterService
 import ru.netology.nmedia.viewmodel.PostViewModel
@@ -25,7 +25,7 @@ class ViewPostFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val viewModel: PostViewModel by activityViewModels()
-        val postId = arguments?.argPostId
+        val postId = arguments?.longArg
         val binding = FragmentViewPostBinding.inflate(layoutInflater, container, false)
 
         viewModel.data.observe(viewLifecycleOwner) { posts ->

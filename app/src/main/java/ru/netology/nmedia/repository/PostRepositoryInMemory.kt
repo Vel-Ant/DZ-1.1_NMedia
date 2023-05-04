@@ -22,7 +22,6 @@ class PostRepositoryInMemory(
             field = value
             sync()
         }
-
     private val data = MutableLiveData(posts)
 
     override fun getAll(): LiveData<List<Post>> = data

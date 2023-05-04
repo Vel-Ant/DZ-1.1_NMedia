@@ -20,18 +20,19 @@ class NewPostFragment : Fragment() {
         var Bundle.textArg: String? by TextArg
     }
 
-        override fun onCreateView(
+    override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         val binding = FragmentNewPostBinding.inflate(layoutInflater)
 
-        getSharedText(binding)
+        okSetOnClickListener(binding)
 
         getPostContent(binding)
 
-        okSetOnClickListener(binding)
+        arguments?.textArg
+            ?.let(binding.edit::setText)
 
         return binding.root
     }
@@ -53,13 +54,6 @@ class NewPostFragment : Fragment() {
             with(binding.edit) {
                 setText(it.content)
             }
-        }
-    }
-
-    fun getSharedText(binding: FragmentNewPostBinding) {
-        arguments?.let {
-            val text = it.textArg
-            binding.edit.setText(text)
         }
     }
 }

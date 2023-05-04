@@ -27,10 +27,7 @@ class PostAdapter(
                 false
             )
 
-        return PostViewHolder(
-            binding = binding,
-            listener = listener,
-        )
+        return PostViewHolder(binding, listener)
     }
 
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {

@@ -22,7 +22,7 @@ class FeedFragment : Fragment() {
     val viewModel: PostViewModel by activityViewModels()
 
     companion object {
-        var Bundle.argPostId: Long by LongArg
+        var Bundle.longArg: Long by LongArg
     }
 
     val adapter = PostAdapter(
@@ -46,7 +46,7 @@ class FeedFragment : Fragment() {
                 viewModel.viewingById(post.postId)
                 findNavController().navigate(
                     R.id.action_feedFragment2_to_viewPostFragment,
-                    Bundle().apply { argPostId = post.postId })
+                    Bundle().apply { longArg = post.postId })
             }
 
             override fun onShare(post: Post) {
