@@ -48,6 +48,7 @@ class PostRepositoryInMemory(
     override fun removeById(postId: Long) {
         posts = posts.filter { it.postId != postId }
         data.value = posts
+        sync()
     }
 
     override fun save(post: Post) {
@@ -59,6 +60,7 @@ class PostRepositoryInMemory(
                 )
             ) + posts
             data.value = posts
+            sync()
             return
         }
 
@@ -66,6 +68,7 @@ class PostRepositoryInMemory(
             if (it.postId == post.postId) it.copy(content = post.content) else it
         }
         data.value = posts
+        sync()
     }
 
     override fun likeById(postId: Long) {
@@ -77,6 +80,7 @@ class PostRepositoryInMemory(
             else it
         }
         data.value = posts
+        sync()
     }
 
     override fun shareById(postId: Long) {
@@ -93,6 +97,7 @@ class PostRepositoryInMemory(
             } else it
         }
         data.value = posts
+        sync()
     }
 
     override fun viewingById(postId: Long) {
@@ -100,5 +105,6 @@ class PostRepositoryInMemory(
             if (it.postId == postId) it.copy(viewingsCount = it.viewingsCount + 1) else it
         }
         data.value = posts
+        sync()
     }
 }

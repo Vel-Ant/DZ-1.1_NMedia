@@ -9,7 +9,6 @@ import ru.netology.nmedia.R
 import ru.netology.nmedia.databinding.CardPostBinding
 import ru.netology.nmedia.dto.Post
 import ru.netology.nmedia.service.CounterService
-import java.net.URL
 
 class PostViewHolder(
     private val binding: CardPostBinding,
@@ -33,6 +32,7 @@ class PostViewHolder(
                 videoScreen.visibility = View.VISIBLE
 
 //TODO: разобраться с исключением
+// Код позволяющий автоматом вставлять картинку из видео в videoImage
 //                val retriever = MediaMetadataRetriever()
 //                retriever.setDataSource(post.urlVideo, HashMap())
 //                val time = 2000L // время в миллисекундах
@@ -59,6 +59,10 @@ class PostViewHolder(
 
             share.setOnClickListener {
                 listener.onShare(post)
+            }
+
+            content.setOnClickListener {
+                listener.onViewPost(post)
             }
 
             menu.setOnClickListener {

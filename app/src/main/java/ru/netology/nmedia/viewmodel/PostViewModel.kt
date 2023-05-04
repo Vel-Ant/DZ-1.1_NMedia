@@ -30,6 +30,7 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
     fun shareById(postId: Long) = repository.shareById(postId)
     fun removeById(postId: Long) = repository.removeById(postId)
     fun viewingById(postId: Long) = repository.viewingById(postId)
+
     fun save() {
         edited.value?.let {
             repository.save(it)

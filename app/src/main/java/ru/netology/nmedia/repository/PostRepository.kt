@@ -10,5 +10,4 @@ interface PostRepository {
     fun viewingById(postId: Long)
     fun removeById(postId: Long)
     fun save(post: Post)
-
 }

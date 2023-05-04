@@ -15,8 +15,8 @@
     <string name="empty_post_error">Текст не может быть пустым</string>
     <string name="cancelEditor">Убрать редактор</string>
     <string name="cancel_editing">Отменить редактирование</string>
-    <string name="chooser_share_post">Share post</string>
-    <string name="error_empty_content">Content can\'t be empty</string>
-    <string name="play_button">PlayButton</string>
-    <string name="add">Add</string>
+    <string name="chooser_share_post">Поделиться постом</string>
+    <string name="error_empty_content">Контент не может быть пустой</string>
+    <string name="play_button">Play</string>
+    <string name="add">Создать</string>
 </resources>
