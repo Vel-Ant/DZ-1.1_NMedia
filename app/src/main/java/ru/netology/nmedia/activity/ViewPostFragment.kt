@@ -13,6 +13,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import ru.netology.nmedia.R
 import ru.netology.nmedia.activity.FeedFragment.Companion.longArg
+import ru.netology.nmedia.activity.NewPostFragment.Companion.textArg
 import ru.netology.nmedia.databinding.FragmentViewPostBinding
 import ru.netology.nmedia.service.CounterService
 import ru.netology.nmedia.viewmodel.PostViewModel
@@ -95,7 +96,8 @@ class ViewPostFragment : Fragment() {
                                         R.id.edit -> {
                                             viewModel.edit(post)
                                             findNavController().navigate(
-                                                R.id.action_viewPostFragment_to_newPostFragment
+                                                R.id.action_viewPostFragment_to_newPostFragment,
+                                                Bundle().apply { textArg = post.content }
                                             )
                                             true
                                         }

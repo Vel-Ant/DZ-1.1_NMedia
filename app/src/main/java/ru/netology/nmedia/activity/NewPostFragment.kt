@@ -29,8 +29,6 @@ class NewPostFragment : Fragment() {
 
         okSetOnClickListener(binding)
 
-        getPostContent(binding)
-
         arguments?.textArg
             ?.let(binding.edit::setText)
 
@@ -46,14 +44,6 @@ class NewPostFragment : Fragment() {
             }
             AndroidUtils.hideKeyboard(requireView())
             findNavController().navigateUp()
-        }
-    }
-
-    fun getPostContent(binding: FragmentNewPostBinding) {
-        viewModel.edited.observe(viewLifecycleOwner) {
-            with(binding.edit) {
-                setText(it.content)
-            }
         }
     }
 }
