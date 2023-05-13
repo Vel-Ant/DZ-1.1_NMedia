@@ -72,7 +72,7 @@ class PostDaoImpl(private val db: SQLiteDatabase) : PostDao {
             // TODO: remove hardcoded values
             put(PostColumns.COLUMN_AUTHOR, "Me")
             put(PostColumns.COLUMN_CONTENT, post.content)
-            put(PostColumns.COLUMN_PUBLISHED, "now")
+            put(PostColumns.COLUMN_PUBLISHED, post.published)
         }
         val id = if (post.postId != 0L) {
             db.update(
@@ -114,8 +114,8 @@ class PostDaoImpl(private val db: SQLiteDatabase) : PostDao {
         db.execSQL(
             """
            UPDATE posts SET
-               shareCount = shareCount + CASE WHEN shared THEN 1 END,
-               shared = CASE WHEN shared THEN 1 END
+               shareCount = shareCount + 1,
+               shared = CASE WHEN shared THEN 1 ELSE 1 END
            WHERE postId = ?;
         """.trimIndent(), arrayOf(postId)
         )

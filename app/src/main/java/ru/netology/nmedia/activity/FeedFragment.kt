@@ -1,5 +1,6 @@
 package ru.netology.nmedia.activity
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -95,8 +96,13 @@ class FeedFragment : Fragment() {
     }
 
     fun addOnClickListener(binding: FragmentFeedBinding) {
+        val prefs = getActivity()?.getPreferences(Context.MODE_PRIVATE)
         binding.add.setOnClickListener {
-            findNavController().navigate(R.id.action_feedFragment_to_newPostFragment)
+            findNavController().navigate(
+                R.id.action_feedFragment_to_newPostFragment,
+                Bundle().apply {
+                    textArg = prefs?.getString("cash", null)
+                })
         }
     }
 }

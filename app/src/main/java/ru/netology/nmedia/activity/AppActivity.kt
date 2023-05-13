@@ -1,5 +1,6 @@
 package ru.netology.nmedia.activity
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -16,6 +17,12 @@ class AppActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding = ActivityAppBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val prefs = getPreferences(Context.MODE_PRIVATE)
+        prefs?.edit()?.apply {      // об_NULL_яет prefs
+            putString("cash", null)
+            apply()
+        }
 
         intent?.let {
             if (it.action != Intent.ACTION_SEND) {
