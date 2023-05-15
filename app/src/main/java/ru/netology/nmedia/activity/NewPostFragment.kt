@@ -42,7 +42,7 @@ class NewPostFragment : Fragment() {
             }
         )
 
-            return binding.root
+        return binding.root
     }
 
     fun okSetOnClickListener(binding: FragmentNewPostBinding) {
