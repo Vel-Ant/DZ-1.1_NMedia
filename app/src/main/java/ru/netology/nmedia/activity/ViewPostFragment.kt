@@ -93,6 +93,7 @@ class ViewPostFragment : Fragment() {
                                             findNavController().navigateUp()
                                             true
                                         }
+
                                         R.id.edit -> {
                                             viewModel.edit(post)
                                             findNavController().navigate(
@@ -101,6 +102,7 @@ class ViewPostFragment : Fragment() {
                                             )
                                             true
                                         }
+
                                         else -> false
                                     }
                                 }

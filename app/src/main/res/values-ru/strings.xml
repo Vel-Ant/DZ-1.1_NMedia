@@ -19,4 +19,9 @@
     <string name="error_empty_content">Контент не может быть пустой</string>
     <string name="play_button">Play</string>
     <string name="add">Создать</string>
+    <string name="google_play_unavailable">Google Api недоступен</string>
+    <string name="notification_user_liked">Юзер %1$s лайкнул пост %2$s</string>
+    <string name="notification_user_published_new_post">Юзер <b><big>%1$s</big></b> опубликовал новый пост:</string>
+    <string name="channel_remote_name">Уведомления сервера</string>
+    <string name="channel_remote_description">Уведомления от удаленного сервера</string>
 </resources>

@@ -5,7 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import ru.netology.nmedia.db.AppDb
 import ru.netology.nmedia.dto.Post
-import ru.netology.nmedia.dto.sdfFormat
+import ru.netology.nmedia.dto.Post.Companion.timeFormat
 import ru.netology.nmedia.repository.PostRepository
 import ru.netology.nmedia.repository.PostRepositorySQLiteImpl
 
@@ -13,15 +13,17 @@ private val empty = Post(
     postId = 0,
     author = "",
     content = "",
-    published = sdfFormat,
+    published = timeFormat,
     liked = false,
     shared = false,
     likesCount = 0,
     shareCount = 0,
     viewingsCount = 0,
+    urlVideo = null
 )
 
 class PostViewModel(application: Application) : AndroidViewModel(application) {
+
     private val repository: PostRepository = PostRepositorySQLiteImpl(
         AppDb.getInstance(application).postDao
     )

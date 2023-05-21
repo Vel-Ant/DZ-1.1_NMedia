@@ -1,20 +1,23 @@
 package ru.netology.nmedia.dto
 
-//  расчет текущего времени
-val timestamp = System.currentTimeMillis()
-val sdf = java.text.SimpleDateFormat("dd-MM-yyyy' в 'HH:mm:ss' '")
-val sdfFormat = sdf.format(timestamp)
+import androidx.lifecycle.MutableLiveData
 
 data class Post(
-
     val postId: Long,
     val author: String,
     val content: String,
-    val published: String = sdfFormat,
+    val published: String = timeFormat,
     val liked: Boolean = false,
     val shared: Boolean = false,
     val likesCount: Int = 0,
     val shareCount: Int = 0,
     val viewingsCount: Int = 0,
     val urlVideo: String? = null
-)
+) {
+    companion object {
+        val timeFormat = MutableLiveData {
+            java.text.SimpleDateFormat("dd.MM.yyyy' в 'HH:mm:ss' '")
+                .format(System.currentTimeMillis())
+        }.toString()
+    }
+}

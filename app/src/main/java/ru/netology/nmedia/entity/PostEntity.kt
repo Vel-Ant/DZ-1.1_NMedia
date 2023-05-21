@@ -3,10 +3,7 @@ package ru.netology.nmedia.entity
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import ru.netology.nmedia.dto.Post
-
-val timestamp = System.currentTimeMillis()
-val sdf = java.text.SimpleDateFormat("dd-MM-yyyy' в 'HH:mm:ss' '")
-val sdfFormat = sdf.format(ru.netology.nmedia.dto.timestamp)
+import ru.netology.nmedia.dto.Post.Companion.timeFormat
 
 @Entity
 data class PostEntity(
@@ -14,7 +11,7 @@ data class PostEntity(
     val postId: Long,
     val author: String,
     val content: String,
-    val published: String = ru.netology.nmedia.dto.sdfFormat,
+    val published: String = timeFormat,
     val liked: Boolean = false,
     val shared: Boolean = false,
     val likesCount: Int = 0,
@@ -46,7 +43,8 @@ data class PostEntity(
                 shared,
                 likesCount,
                 shareCount,
-                viewingsCount
+                viewingsCount,
+                urlVideo
             )
         }
     }
