@@ -3,7 +3,6 @@ package ru.netology.nmedia.entity
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import ru.netology.nmedia.dto.Post
-import ru.netology.nmedia.dto.Post.Companion.timeFormat
 
 @Entity
 data class PostEntity(
@@ -11,7 +10,7 @@ data class PostEntity(
     val postId: Long,
     val author: String,
     val content: String,
-    val published: String = timeFormat,
+    val published: String,
     val liked: Boolean = false,
     val shared: Boolean = false,
     val likesCount: Int = 0,

@@ -4,6 +4,7 @@ import android.media.MediaMetadataRetriever
 import android.view.View
 import android.widget.PopupMenu
 import androidx.appcompat.view.ContextThemeWrapper
+import androidx.lifecycle.liveData
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import ru.netology.nmedia.R
 import ru.netology.nmedia.databinding.CardPostBinding
@@ -74,10 +75,12 @@ class PostViewHolder(
                                 listener.onRemove(post)
                                 true
                             }
+
                             R.id.edit -> {
                                 listener.onEdit(post)
                                 true
                             }
+
                             else -> false
                         }
                     }

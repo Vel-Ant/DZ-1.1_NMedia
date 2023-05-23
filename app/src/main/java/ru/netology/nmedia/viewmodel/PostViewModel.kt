@@ -5,7 +5,6 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import ru.netology.nmedia.db.AppDb
 import ru.netology.nmedia.dto.Post
-import ru.netology.nmedia.dto.Post.Companion.timeFormat
 import ru.netology.nmedia.repository.PostRepository
 import ru.netology.nmedia.repository.PostRepositorySQLiteImpl
 
@@ -13,7 +12,7 @@ private val empty = Post(
     postId = 0,
     author = "",
     content = "",
-    published = timeFormat,
+    published = "",
     liked = false,
     shared = false,
     likesCount = 0,
@@ -54,7 +53,11 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
     fun changeContent(content: String) {
         edited.value?.let { post ->
             if (content != post.content) {
-                edited.value = post.copy(content = content)
+                edited.value = post.copy(
+                    content = content,
+                    published = java.text.SimpleDateFormat("dd.MM.yyyy' в 'HH:mm:ss' '")
+                        .format(System.currentTimeMillis())
+                )
             }
         }
     }
